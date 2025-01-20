@@ -8,9 +8,16 @@ import {basePrompt as reactBasePrompt} from "./defaults/react";
 import cors from "cors";
 
 const anthropic = new Anthropic();
+
 const app = express();
-app.use(cors())
-app.use(express.json())
+
+app.use(cors({
+    origin: 'http://localhost:5173', // Replace with your frontend's origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true // If your requests include credentials (e.g., cookies)
+  }));
+
+  app.use(express.json())
 
 app.post("/template", async (req, res) => {
     const prompt = req.body.prompt;
