@@ -9,13 +9,15 @@ import cors from "cors";
 
 const anthropic = new Anthropic();
 const app = express();
-app.use(express.json())
 
 app.use(cors({
     origin: 'https://lighthearted-pasca-e0594f.netlify.app', // Replace with your frontend domain
     methods: 'GET,POST',
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+
+app.use(express.json())
+
 
 app.post("/template", async (req, res) => {
     const prompt = req.body.prompt;

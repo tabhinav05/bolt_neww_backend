@@ -22,9 +22,9 @@ const cors_1 = __importDefault(require("cors"));
 const anthropic = new sdk_1.default();
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
-    origin: 'https://lighthearted-pasca-e0594f.netlify.app', // Replace with your front-end URL
-    methods: 'GET,POST,PUT,DELETE',
-    credentials: true
+    origin: 'https://lighthearted-pasca-e0594f.netlify.app', // Replace with your frontend domain
+    methods: 'GET,POST',
+    allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 app.use(express_1.default.json());
 app.post("/template", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
