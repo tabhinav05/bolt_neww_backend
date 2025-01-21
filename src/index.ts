@@ -10,11 +10,7 @@ import cors from "cors";
 const anthropic = new Anthropic();
 const app = express();
 
-app.use(cors({
-    origin: 'https://lighthearted-pasca-e0594f.netlify.app', // Replace with your frontend domain
-    methods: 'GET,POST',
-    allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+app.use(cors());
 
 app.use(express.json())
 
